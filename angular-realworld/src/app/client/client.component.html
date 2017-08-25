@@ -1,0 +1,11 @@
+<div class="client-page">
+    <md-checkbox>
+        check me!
+    </md-checkbox>
+    <h1>{{ client.firstName }}</h1>
+    <h2>{{ client.lastName }}</h2>
+    <div>{{ client.telephone }}</div>
+    <div>{{ client.birthday }}</div>
+    <div>{{ client.street }} {{ client.postalCode }} {{ client.city }}</div>
+    <session-list [slug]= "client.slug"></session-list>
+</div>

@@ -1,0 +1,46 @@
+<div class="add-session-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-xs-12">
+        <form [formGroup]="sessionForm">
+          <fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                formControlName="title"
+                type="text"
+                placeholder="Title" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control"
+                formControlName="description"
+                type="text"
+                placeholder="Description" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea class="form-control"
+                formControlName="date"
+                placeholder="date (dd-MM-yyyy-hh-mm)">
+              </textarea>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea class="form-control"
+                formControlName="durationInMinutes"
+                placeholder="duration">
+              </textarea>
+            </fieldset>
+
+            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="addSession()">
+              Add Session
+            </button>
+
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="add-session-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-xs-12">
+        <form [formGroup]="sessionForm">
+          <fieldset>
+
+            <fieldset class="form-group">
+              <md-input-container underlineRef>
+                <input mdInput placeholder="Title" formControlName="title">
+              </md-input-container>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <md-input-container underlineRef>
+                <input mdInput placeholder="Description" formControlName="description">
+              </md-input-container>
+            </fieldset>
+
+            <!-- <fieldset class="form-group">
+              <md-input-container>
+                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+                <button mdSuffix [mdDatepickerToggle]="picker"></button>
+              </md-input-container>
+              <md-datepicker #picker></md-datepicker>
+            </fieldset> -->
+
+            <!-- <fieldset class="form-group">
+              <md2-datepicker
+                placeholder="Date + time of start"
+                openOnFocus="True"
+                type="datetime"
+                formControlName="date">
+              </md2-datepicker>
+            </fieldset> -->
+            <fieldset class="form-group">
+              <md-input-container underlineRef>
+                <input mdInput formControlName="date" type="datetime-local">
+              </md-input-container>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <md-input-container underlineRef>
+                <input mdInput placeholder="Duration in minutes" formControlName="durationInMinutes" type="number">
+              </md-input-container>
+            </fieldset>
+            <!-- <fieldset class="form-group">
+              <input class="form-control"
+                formControlName="durationInMinutes"
+                placeholder="duration"
+                type="number">
+            </fieldset> -->
+
+            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="addSession()">
+              Add Session
+            </button>
+
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

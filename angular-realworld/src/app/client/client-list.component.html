@@ -1,0 +1,10 @@
+
+<ul>
+    <li *ngFor="let client of results">
+        <a [routerLink]="['/clients', client.slug]">
+            <h1>{{ client.firstName }}</h1>
+            <p>{{ client.lastName }}</p>
+            <span>Read more...</span>
+        </a>
+    </li>
+</ul>
