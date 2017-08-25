@@ -36,7 +36,7 @@ export class SessionListComponent implements OnInit {
     this.sessionsService.getAll(this.route.snapshot.params['slug'])
     .subscribe(data => {
       console.log(data);
-      this.results = data.sessions;
+      // this.results = data.sessions;
       console.log("test2");
       console.log(this.results);
     });
