@@ -25,8 +25,6 @@ CLientSchema.pre('validate', function(next){
 });
 
 CLientSchema.methods.slugify = function() {
-  console.log("clientschema");
-  console.log(this);
   this.slug = slug(this.firstName + this.lastName);
 };
 
