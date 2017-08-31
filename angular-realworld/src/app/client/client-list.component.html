@@ -1,5 +1,25 @@
 
-<ul>
+
+
+<md-grid-list cols="2">
+    <md-grid-tile
+      *ngFor="let client of results"
+      [colspan]=1
+      [rowspan]=1
+      [style.background]="lightblue">
+        <md-card  [routerLink]="['/clients', client.slug]">
+            <md-card-title>{{ client.firstName }}</md-card-title>
+            <md-card-subtitle>{{ client.lastName }}</md-card-subtitle>
+            <md-card-content>
+                {{ client.birthday | date:'dd/MM/yyyy'}} <br>
+                {{ client.street }} {{ client.postalCode }} {{ client.city }} <br>
+                {{ client.telephone }}
+            </md-card-content>
+        </md-card>
+    </md-grid-tile>
+</md-grid-list>
+
+<!-- <ul>
     <li *ngFor="let client of results">
         <a [routerLink]="['/clients', client.slug]">
             <h1>{{ client.firstName }}</h1>
@@ -8,3 +28,4 @@
         </a>
     </li>
 </ul>
+ -->

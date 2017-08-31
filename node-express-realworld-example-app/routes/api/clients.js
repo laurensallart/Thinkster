@@ -193,7 +193,7 @@ router.post('/:client/sessions', auth.required, function(req, res, next) {
 router.delete('/:client/sessions/:session', auth.required, function(req, res, next) {
   if(req.session.author.toString() === req.payload.id.toString()){
     req.client.sessions.remove(req.session._id);
-    req.client.save()
+    return req.client.save()
       .then(Session.find({_id: req.session._id}).remove().exec())
       .then(function(){
         res.sendStatus(204);

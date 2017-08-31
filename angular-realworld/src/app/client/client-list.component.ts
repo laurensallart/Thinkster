@@ -39,8 +39,6 @@ export class ClientListComponent implements OnInit {
     this.clientsService.query(this.query)
     .subscribe(data => {
       this.results = data.clients;
-      console.log("test2");
-      console.log(this.results);
     });
   }
 };

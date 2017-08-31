@@ -36,22 +36,15 @@ export class SessionListComponent implements OnInit {
     this.sessionsService.getAll(this.route.snapshot.params['slug'])
     .subscribe(data => {
       this.results = data;
-      console.log(this.results);
     });
   }
 
   remove_session(id: any) {
     console.log("removing session ");
-    console.log(id);
-    console.log(this.slug);
-    var a = this.sessionsService.destroy(id, this.route.snapshot.params['slug'])
-    .subscribe(
-      success => {
-        console.log('succes');
-        /*this.router.navigateByUrl('/');*/
-      }
-    );;
-    return a;
+    this.sessionsService.destroy(id, this.route.snapshot.params['slug'])
+    .subscribe(success => {
+      console.log('success');
+    });
   }
 };
 

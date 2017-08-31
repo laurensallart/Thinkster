@@ -42,7 +42,10 @@ export class AddClientComponent {
     // update the model
     this.updateClient(this.clientForm.value);
     // post the changes
-    this.clientsService.save(this.newClient);
+    this.clientsService.save(this.newClient)
+    .subscribe(() => {
+      this.router.navigateByUrl('/clients');
+    });
 
   }
 

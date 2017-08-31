@@ -38,12 +38,10 @@ export class AddSessionComponent {
     // update the model
     this.updateSession(this.sessionForm.value);
     // // post the changes
-    console.log(this.route.snapshot.params['slug']);
-    console.log(this.newSession);
     this.sessionsService
     .add(this.route.snapshot.params['slug'], this.newSession)
     .subscribe(data => {
-      console.log(data);
+      this.router.navigateByUrl('/clients/' + this.route.snapshot.params['slug']);
     });
 
   }

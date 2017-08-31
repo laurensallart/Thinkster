@@ -23,13 +23,23 @@ export class ClientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      // Retreive the prefetched client
-      this.route.data.subscribe(
-        (data: { client: Client }) => {
-          this.client = data.client;
-          console.log(this.client);
-        }
-      );
-    }
+    // Retreive the prefetched client
+    this.route.data.subscribe(
+      (data: { client: Client }) => {
+        this.client = data.client;
+        console.log(this.client);
+      }
+    );
+  }
+
+  remove_client(slug: string) {
+    this.clientsService.destroy(slug)
+    .subscribe(
+      data => {
+        console.log("deleted client");
+        this.router.navigateByUrl('/clients');
+      }
+    );
+  }
 };
 

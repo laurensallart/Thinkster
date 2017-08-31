@@ -1,7 +1,12 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdCheckboxModule, MdInputModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import { MdCheckboxModule, 
+  MdInputModule, 
+  MdDatepickerModule, 
+  MdNativeDateModule,
+  MdCardModule,
+  MdGridListModule } from '@angular/material';
 import { Md2DatepickerModule } from 'md2';
 
 import { ClientListComponent } from './client-list.component';
@@ -39,6 +44,8 @@ const clientRouting: ModuleWithProviders = RouterModule.forChild([
     MdInputModule,
     MdDatepickerModule,
     MdNativeDateModule,
+    MdCardModule,
+    MdGridListModule,
     Md2DatepickerModule
   ],
   declarations: [
