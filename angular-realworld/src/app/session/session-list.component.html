@@ -1,6 +1,23 @@
-<span>testing</span>
-<a [routerLink]="['/clients', slug, 'addsession']">
-    <button class="btn btn-lg pull-xs-right btn-primary" type="button">
-        Add Session
-    </button>
-</a>
+<div>
+    <a [routerLink]="['/clients', slug, 'addsession']">
+        <button class="btn btn-lg pull-xs-left btn-primary" type="button">
+            Add Session
+        </button>
+    </a>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <ul>
+        <li *ngFor="let session of results">
+            <h1>{{ session.title }}</h1>
+            <p>{{ session.description }}</p>
+            <p>{{ session.id }}</p>
+            <button class="btn btn-sm pull-xs-right btn-danger" type="button" 
+            (click)="remove_session(session.id)">
+                Remove
+            </button>
+        </li>
+    </ul>
+</div>

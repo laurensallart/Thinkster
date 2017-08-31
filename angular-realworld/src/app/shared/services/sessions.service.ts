@@ -22,8 +22,9 @@ export class SessionsService {
   }
 
   getAll(slug): Observable<Session[]> {
-    return this.apiService.get(`/clients/${slug}/sessions`)
+    const req = this.apiService.get(`/clients/${slug}/sessions`)
            .map(data => data.sessions);
+    return req;
   }
 
   destroy(sessionId, clientSlug) {

@@ -23,7 +23,7 @@ export class ClientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      // Retreive the prefetched article
+      // Retreive the prefetched client
       this.route.data.subscribe(
         (data: { client: Client }) => {
           this.client = data.client;

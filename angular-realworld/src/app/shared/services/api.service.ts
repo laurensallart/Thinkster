@@ -53,7 +53,7 @@ export class ApiService {
       { headers: this.setHeaders() }
     )
     .catch(this.formatErrors)
-    .map((res:Response) => res.json());
+    .map((res: Response) => res.json());
   }
 
   delete(path): Observable<any> {

@@ -41,13 +41,13 @@ export class ClientsService {
   save(client): Observable<Client> {
     // If we're updating an existing client
     if (client.slug) {
-      console.log("with slug");
+      console.log("updating existing client");
       return this.apiService.put('/clients/' + client.slug, {client: client})
              .map(data => data.client);
 
     // Otherwise, create a new client
     } else {
-      console.log("without slug");
+      console.log("creating new client");
       return this.apiService.post('/clients/', {client: client})
              .map(data => data.client);
     }

@@ -79,7 +79,6 @@ router.post('/', auth.required, function(req, res, next) {
     client.author = user;
 
     return client.save().then(function(){
-      console.log(client.author);
       return res.json({client: client.toJSONFor(user)});
     });
   }).catch(next);
@@ -159,37 +158,34 @@ router.get('/:client/sessions', auth.optional, function(req, res, next){
   Promise.resolve(req.payload ? User.findById(req.payload.id) : null).then(function(user){
     return req.client.populate({
       path: 'sessions',
-      populate: {
-        path: 'author'
-      },
       options: {
         sort: {
           createdAt: 'desc'
         }
       }
     }).execPopulate().then(function(client) {
-      return res.json({sessions: req.client.sessions.map(function(session){
+      const respons = res.json({sessions: req.client.sessions.map(function(session){
         return session.toJSONFor(user, client);
       })});
+      return respons;
     });
   }).catch(next);
 });
 
 // create a new session
 router.post('/:client/sessions', auth.required, function(req, res, next) {
-  console.log('hjoehoe');
   User.findById(req.payload.id).then(function(user){
     if(!user){ return res.sendStatus(401); }
     var session = new Session(req.body.session.body);
     session.client = req.client;
     session.author = user;
-
     return session.save().then(function(){
-      req.client.sessions.push(session);
-
-      return req.client.save().then(function(client) {
-        res.json({session: session.toJSONFor(user)});
-      });
+      Client.findById(req.client.id).then(function(client){
+        client.sessions.push(session);
+        return client.save().then(function(client){
+          res.json({session: session.toJSONFor(user)});
+        })
+      })
     });
   }).catch(next);
 });

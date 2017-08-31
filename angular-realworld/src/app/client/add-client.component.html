@@ -29,11 +29,20 @@
               </textarea>
             </fieldset>
 
-            <fieldset class="form-group">
-              <textarea class="form-control"
+            <!-- <fieldset class="form-group">
+              <date class="form-control"
                 formControlName="birthday"
                 placeholder="birthday (dd-mm-yyyy)">
-              </textarea>
+              </date>
+            </fieldset> -->
+
+            <fieldset class="form-group">
+              <md-input-container underlineRef >
+                <input mdInput formControlName="birthday" 
+                  type="date" 
+                  class="form-control" 
+                  placeholder="birthday (dd-mm-yyyy)">
+              </md-input-container>
             </fieldset>
 
             <fieldset class="form-group">

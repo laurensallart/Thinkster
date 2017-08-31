@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var User = mongoose.model('User');
 
 var SessionSchema = new mongoose.Schema({
   title: String,
@@ -13,12 +14,12 @@ var SessionSchema = new mongoose.Schema({
 SessionSchema.methods.toJSONFor = function(user, client){
   return {
     id: this._id,
-    title: this.body,
+    title: this.title,
     description: this.description,
     date: this.date,
     durationInMinutes: this.durationInMinutes,
     createdAt: this.createdAt,
-    author: this.author.toProfileJSONFor(user),
+    author: this.author,
     client: this.client
   };
 };
