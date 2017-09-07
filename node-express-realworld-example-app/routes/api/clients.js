@@ -179,6 +179,7 @@ router.post('/:client/sessions', auth.required, function(req, res, next) {
     var session = new Session(req.body.session.body);
     session.client = req.client;
     session.author = user;
+    session.isCanceled = false;
     return session.save().then(function(){
       Client.findById(req.client.id).then(function(client){
         client.sessions.push(session);

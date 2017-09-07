@@ -6,7 +6,8 @@ import { MdCheckboxModule,
   MdDatepickerModule, 
   MdNativeDateModule,
   MdCardModule,
-  MdGridListModule } from '@angular/material';
+  MdGridListModule,
+  MdButtonModule } from '@angular/material';
 import { Md2DatepickerModule } from 'md2';
 
 import { ClientListComponent } from './client-list.component';
@@ -46,6 +47,7 @@ const clientRouting: ModuleWithProviders = RouterModule.forChild([
     MdNativeDateModule,
     MdCardModule,
     MdGridListModule,
+    MdButtonModule,
     Md2DatepickerModule
   ],
   declarations: [

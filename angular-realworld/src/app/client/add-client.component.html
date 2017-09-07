@@ -1,79 +1,93 @@
 <div class="add-client-page">
   <div class="container page">
     <div class="row">
-      <div class="col-md-10 offset-md-1 col-xs-12">
 
-        <list-errors [errors]="errors"></list-errors>
 
-        <form [formGroup]="clientForm">
-          <fieldset>
+      <list-errors [errors]="errors"></list-errors>
 
-            <fieldset class="form-group">
-              <input class="form-control form-control-lg"
-                formControlName="firstName"
-                type="text"
-                placeholder="Clients first name" />
-            </fieldset>
+      <form [formGroup]="clientForm">
 
-            <fieldset class="form-group">
-              <input class="form-control"
-                formControlName="lastName"
-                type="text"
-                placeholder="Clients last name" />
-            </fieldset>
+        <fieldset>
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+              <fieldset class="form-group">
+                <md-input-container underlineRef>
+                  <input mdInput
+                  formControlName="firstName"
+                  type="text"
+                  placeholder="Clients first name" />
+                </md-input-container>
+              </fieldset>
 
-            <fieldset class="form-group">
-              <textarea class="form-control"
-                formControlName="telephone"
-                placeholder="telephone number (xxxx/xx xx xx)">
-              </textarea>
-            </fieldset>
+              <fieldset class="form-group">
+                <md-input-container underlineRef>
+                  <input mdInput
+                  formControlName="lastName"
+                  type="text"
+                  placeholder="Clients last name" />
+                </md-input-container>
+              </fieldset>
 
-            <!-- <fieldset class="form-group">
-              <date class="form-control"
-                formControlName="birthday"
-                placeholder="birthday (dd-mm-yyyy)">
-              </date>
-            </fieldset> -->
+              <fieldset class="form-group">
+                <md-input-container underlineRef>
+                  <input mdInput
+                  formControlName="telephone"
+                  type="text"
+                  placeholder="telephone (xxxx/xx xx xx)" />
+                </md-input-container>
+              </fieldset>
 
-            <fieldset class="form-group">
-              <md-input-container underlineRef >
-                <input mdInput formControlName="birthday" 
+              <fieldset class="form-group">
+                <md-input-container underlineRef >
+                  <input mdInput formControlName="birthday" 
                   type="date" 
                   class="form-control" 
                   placeholder="birthday (dd-mm-yyyy)">
-              </md-input-container>
-            </fieldset>
+                </md-input-container>
+              </fieldset>        
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <fieldset class="form-group">
+                <md-input-container underlineRef>
+                  <input mdInput
+                  formControlName="street"
+                  type="text"
+                  placeholder="street + number" />
+                </md-input-container>
+              </fieldset>
 
-            <fieldset class="form-group">
-              <textarea class="form-control"
-                formControlName="street"
-                placeholder="street + number">
-              </textarea>
-            </fieldset>
+              <fieldset class="form-group">
+                <md-input-container underlineRef>
+                  <input mdInput
+                  formControlName="postalCode"
+                  type="number"
+                  placeholder="postal code"
+                  min="1000"
+                  max="9999" />
+                </md-input-container>
+              </fieldset>
 
-            <fieldset class="form-group">
-              <textarea class="form-control"
-                formControlName="postalCode"
-                placeholder="postal code">
-              </textarea>
-            </fieldset>
+              <fieldset class="form-group">
+                <md-input-container underlineRef>
+                  <input mdInput
+                  formControlName="city"
+                  type="text"
+                  placeholder="city" />
+                </md-input-container>
+              </fieldset>
+            </div>
+          </div>
+          <button md-raised-button color="primary" (click)="addClient()">
+            Add Client
+          </button>
+          <!-- <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="addClient()">
+            Add Client
+          </button> -->
+        </fieldset>
+      </form>
 
-            <fieldset class="form-group">
-              <textarea class="form-control"
-                formControlName="city"
-                placeholder="city">
-              </textarea>
-            </fieldset>
-
-            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="addClient()">
-              Add Client
-            </button>
-
-          </fieldset>
-        </form>
-
-      </div>
+      
+      
     </div>
   </div>
 </div>

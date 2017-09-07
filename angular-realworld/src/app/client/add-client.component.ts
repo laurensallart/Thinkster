@@ -30,7 +30,7 @@ export class AddClientComponent {
       telephone: '',
       birthday: '',
       street: '',
-      postalCode: -1,
+      postalCode: '',
       city: '',
     });
     // Optional: subscribe to value changes on the form

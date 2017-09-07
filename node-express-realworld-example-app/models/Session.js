@@ -6,6 +6,7 @@ var SessionSchema = new mongoose.Schema({
   description: String,
   date: Date,
   durationInMinutes: Number,
+  isCanceled: Boolean,
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   client: { type: mongoose.Schema.Types.ObjectId, ref: 'Client' }
 }, {timestamps: true});
@@ -18,6 +19,7 @@ SessionSchema.methods.toJSONFor = function(user, client){
     description: this.description,
     date: this.date,
     durationInMinutes: this.durationInMinutes,
+    isCanceled: this.isCanceled,
     createdAt: this.createdAt,
     author: this.author,
     client: this.client

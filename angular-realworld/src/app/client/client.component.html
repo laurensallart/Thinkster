@@ -1,14 +1,36 @@
 <div class="client-page">
-    <md-checkbox>
-        check me!
-    </md-checkbox>
-    <h1>{{ client.firstName }}</h1>
-    <h2>{{ client.lastName }}</h2>
-    <div>{{ client.telephone }}</div>
-    <div>{{ client.birthday }}</div>
-    <div>{{ client.street }} {{ client.postalCode }} {{ client.city }}</div>
+    <div class="container">
+        <div class="row">
+            <md-card class="col-sm-12 col-xs-12 col-md-6">
+                <md-card-header>
+                    <md-card-title>
+                        {{ client.firstName }} {{ client.lastName }}
+                    </md-card-title>
+                    <md-card-subtitle>
+                        {{ client.telephone }}
+                    </md-card-subtitle>
+                </md-card-header>
+                <img md-card-image src="{{client.author.image}}">
+                <md-card-content>
+
+                    <md-list>
+                        <md-list-item>
+                            <p>{{ client.telephone }}</p>
+                        </md-list-item>
+                        <md-list-item>
+                            <p>{{ client.birthday | date:'dd/MM/yyyy' }}</p>
+                        </md-list-item>
+                        <md-list-item>
+                            <p>{{ client.street }} </p>
+                            <p>{{ client.postalCode }} {{ client.city }}</p>
+                        </md-list-item>
+                    </md-list>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
     {{ client.image }}
-    <img src="{{client.author.image}}" style="width:100px;height:100px;">
+    
     <div> </div>
     <session-list [slug]= "client.slug"></session-list>
     <button class="btn btn-lg pull-xs-left btn-danger" type="button" (click)="remove_client(client.slug)">
