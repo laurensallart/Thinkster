@@ -155,20 +155,24 @@ router.delete('/:client', auth.required, function(req, res, next) {
 
 // return an client's sessions
 router.get('/:client/sessions', auth.optional, function(req, res, next){
-  Promise.resolve(req.payload ? User.findById(req.payload.id) : null).then(function(user){
-    return req.client.populate({
+  Promise.all([
+    req.payload ? User.findById(req.payload.id) : null,
+    req.client.populate({
       path: 'sessions',
       options: {
         sort: {
           createdAt: 'desc'
         }
       }
-    }).execPopulate().then(function(client) {
-      const respons = res.json({sessions: req.client.sessions.map(function(session){
-        return session.toJSONFor(user, client);
-      })});
-      return respons;
-    });
+    }).execPopulate()
+  ]).then(function(results){
+    var user = results[0];
+    var client = results[1];
+    return res.json({client: req.client.toJSONFor(user),
+                    sessions: client.sessions.map(function(session){
+                      session.author = user;
+                      return session.toJSONFor(user);
+                    })});
   }).catch(next);
 });
 

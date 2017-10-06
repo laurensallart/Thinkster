@@ -6,6 +6,7 @@ import { Md2DatepickerModule } from 'md2';
 
 import { SessionListComponent } from './session-list.component';
 import { AddSessionComponent } from './add-session.component';
+import { AgendaComponent} from './agenda.component';
 import { SharedModule } from '../shared';
 
 const sessionRouting: ModuleWithProviders = RouterModule.forChild([
@@ -17,6 +18,10 @@ const sessionRouting: ModuleWithProviders = RouterModule.forChild([
     path: 'clients/:slug/addsession',
     component: AddSessionComponent,
   },
+  {
+    path: 'agenda',
+    component: AgendaComponent,
+  }
 ]);
 
 @NgModule({
@@ -31,6 +36,7 @@ const sessionRouting: ModuleWithProviders = RouterModule.forChild([
   declarations: [
     SessionListComponent,
     AddSessionComponent,
+    AgendaComponent,
   ],
   exports: [
     SessionListComponent,

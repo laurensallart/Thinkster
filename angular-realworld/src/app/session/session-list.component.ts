@@ -33,7 +33,7 @@ export class SessionListComponent implements OnInit {
 
   runQuery() {
     this.results = [];
-    this.sessionsService.getAll(this.route.snapshot.params['slug'])
+    this.sessionsService.getAllForClient(this.route.snapshot.params['slug'])
     .subscribe(data => {
       this.results = data;
     });
@@ -41,7 +41,7 @@ export class SessionListComponent implements OnInit {
 
   remove_session(id: any) {
     console.log("removing session ");
-    this.sessionsService.destroy(id, this.route.snapshot.params['slug'])
+    this.sessionsService.destroy(id)
     .subscribe(success => {
       console.log('success');
     });

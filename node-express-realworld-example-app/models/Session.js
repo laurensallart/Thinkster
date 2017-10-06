@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Client = mongoose.model('Client');
 
 var SessionSchema = new mongoose.Schema({
   title: String,
@@ -12,7 +13,7 @@ var SessionSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 // Requires population of author
-SessionSchema.methods.toJSONFor = function(user, client){
+SessionSchema.methods.toJSONFor = function(user){
   return {
     id: this._id,
     title: this.title,
@@ -21,7 +22,7 @@ SessionSchema.methods.toJSONFor = function(user, client){
     durationInMinutes: this.durationInMinutes,
     isCanceled: this.isCanceled,
     createdAt: this.createdAt,
-    author: this.author,
+    author: this.author.toProfileJSONFor(user),
     client: this.client
   };
 };

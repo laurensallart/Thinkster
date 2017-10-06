@@ -21,15 +21,28 @@ export class SessionsService {
     ).map(data => data.session);
   }
 
-  getAll(slug): Observable<Session[]> {
-    const req = this.apiService.get(`/clients/${slug}/sessions`)
+  getAllForClient(slug): Observable<Session[]> {
+    return this.apiService.get(`/clients/${slug}/sessions`)
            .map(data => data.sessions);
-    return req;
   }
 
-  destroy(sessionId, clientSlug) {
+  destroy(sessionId) {
     return this.apiService
-           .delete(`/clients/${clientSlug}/sessions/${sessionId}`);
+           .delete(`/sessions/${sessionId}`)
+  }
+
+  getAll(): Observable<Session[]> {
+    return this.apiService
+      .get('/sessions')
+      .map(res => res);
+  }
+
+  getToday(): Observable<Session[]> {
+    var today = new Date();
+    var todayString = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
+    return this.apiService
+      .get('/sessions/' + todayString + '/3')
+      .map(data => data.sessions);
   }
 
 }
