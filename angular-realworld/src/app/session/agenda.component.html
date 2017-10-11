@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav class="example-sidenav">
+        Jolly good!
+      </mat-sidenav>
+
+      <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="sidenav.open()">
+          Open sidenav
+        </button>
+      </div>
+
+    </mat-sidenav-container>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-4 offset-md-4">
+            <button class="btn btn-succes" type="button" 
+            (click)="previousDays()">
+                Previous
+            </button>
+            <button class="btn btn-succes" type="button" 
+            (click)="nextDays()">
+                Next
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-4">
+            <h1>{{ currentDay }}</h1>
+            <ul>
+                <li *ngFor="let session of currentDayResults">
+                    <h3>{{ session.title }}</h3>
+                    <p>{{ session.description }}</p>
+                    <p>{{ session.date | date:'HH:mm' }}</p>
+                    <p>{{ session.client.firstName }} {{ session.client.lastName }}</p>
+                    <button class="btn btn-sm pull-xs-right btn-danger" type="button" 
+                    (click)="remove_session(session.id)">
+                        Remove
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-4">
+            <h1>{{ nextDay }}</h1>
+            <ul>
+                <li *ngFor="let session of nextDayResults">
+                    <h3>{{ session.title }}</h3>
+                    <p>{{ session.description }}</p>
+                    <p>{{ session.client.firstName }} {{ session.client.lastName }}</p>
+                    <button class="btn btn-sm pull-xs-right btn-danger" type="button" 
+                    (click)="remove_session(session.id)">
+                        Remove
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-4">
+            <h1>{{ nextNextDay }}</h1>
+            <ul>
+                <li *ngFor="let session of nextNextDayResults">
+                    <h3>{{ session.title }}</h3>
+                    <p>{{ session.description }}</p>
+                    <p>{{ session.client.firstName }} {{ session.client.lastName }}</p>
+                    <button class="btn btn-sm pull-xs-right btn-danger" type="button" 
+                    (click)="remove_session(session.id)">
+                        Remove
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+
