@@ -1,32 +1,32 @@
 <div class="client-page">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <md-card class="col-sm-12 col-xs-12 col-md-6">
-                <md-card-header>
-                    <md-card-title>
+            <mat-card class="col-sm-12 col-xs-12 col-md-6">
+                <mat-card-header>
+                    <mat-card-title>
                         {{ client.firstName }} {{ client.lastName }}
-                    </md-card-title>
-                    <md-card-subtitle>
+                    </mat-card-title>
+                    <mat-card-subtitle>
                         {{ client.telephone }}
-                    </md-card-subtitle>
-                </md-card-header>
-                <img md-card-image src="{{client.author.image}}">
-                <md-card-content>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{client.author.image}}">
+                <mat-card-content>
 
-                    <md-list>
-                        <md-list-item>
+                    <mat-list>
+                        <mat-list-item>
                             <p>{{ client.telephone }}</p>
-                        </md-list-item>
-                        <md-list-item>
+                        </mat-list-item>
+                        <mat-list-item>
                             <p>{{ client.birthday | date:'dd/MM/yyyy' }}</p>
-                        </md-list-item>
-                        <md-list-item>
+                        </mat-list-item>
+                        <mat-list-item>
                             <p>{{ client.street }} </p>
                             <p>{{ client.postalCode }} {{ client.city }}</p>
-                        </md-list-item>
-                    </md-list>
-                </md-card-content>
-            </md-card>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
         </div>
     </div>
     {{ client.image }}

@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MdInputModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import { MatInputModule, MatDatepickerModule, MatNativeDateModule, MatSidenavModule } from '@angular/material';
 import { Md2DatepickerModule } from 'md2';
 
 
@@ -28,9 +28,10 @@ const sessionRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     sessionRouting,
     SharedModule,
-    MdInputModule,
-    MdDatepickerModule,
-    MdNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSidenavModule,
     Md2DatepickerModule
   ],
   declarations: [

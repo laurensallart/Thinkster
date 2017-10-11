@@ -27,7 +27,6 @@ export class ClientComponent implements OnInit {
     this.route.data.subscribe(
       (data: { client: Client }) => {
         this.client = data.client;
-        console.log(this.client);
       }
     );
   }

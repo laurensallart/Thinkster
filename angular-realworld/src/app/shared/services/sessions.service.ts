@@ -37,9 +37,9 @@ export class SessionsService {
       .map(res => res);
   }
 
-  getToday(): Observable<Session[]> {
-    var today = new Date();
-    var todayString = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
+  getDay(date): Observable<Session[]> {
+    var today = new Date(date);
+    var todayString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     return this.apiService
       .get('/sessions/' + todayString + '/3')
       .map(data => data.sessions);

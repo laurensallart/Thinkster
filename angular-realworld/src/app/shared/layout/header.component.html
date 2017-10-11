@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light">
   <div class="container">
     <a class="navbar-brand" routerLink="/clients">
-      Victoria Coppens
+      <span>Victoria Coppens</span>
     </a>
 
     <!-- Show this for logged out users -->
@@ -43,6 +43,15 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">
           Home
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+          routerLink="/agenda"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Agenda
         </a>
       </li>
 

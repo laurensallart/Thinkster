@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-6" *ngFor="let client of results">
             <a [routerLink]="['/clients', client.slug]">
-                <md-card  >
-                    <md-card-title>{{ client.firstName }}</md-card-title>
-                    <md-card-subtitle>{{ client.lastName }}</md-card-subtitle>
-                    <md-card-content>
+                <mat-card  >
+                    <mat-card-title>{{ client.firstName }}</mat-card-title>
+                    <mat-card-subtitle>{{ client.lastName }}</mat-card-subtitle>
+                    <mat-card-content>
                         {{ client.birthday | date:'dd/MM/yyyy'}} <br>
                         {{ client.street }} {{ client.postalCode }} {{ client.city }} <br>
                         {{ client.telephone }}
-                    </md-card-content>
-                </md-card>
+                    </mat-card-content>
+                </mat-card>
                 <br>
             </a>
         </div>

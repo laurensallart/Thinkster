@@ -2,8 +2,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
 import { Md2Module }  from 'md2';
+import { MatSidenavModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -42,8 +42,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
     Md2Module,
+    MatSidenavModule,
     ArticleModule,
     ClientModule,
     SessionModule,

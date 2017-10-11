@@ -1,13 +1,13 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdCheckboxModule, 
-  MdInputModule, 
-  MdDatepickerModule, 
-  MdNativeDateModule,
-  MdCardModule,
-  MdGridListModule,
-  MdButtonModule } from '@angular/material';
+import { MatCheckboxModule, 
+  MatInputModule, 
+  MatDatepickerModule, 
+  MatNativeDateModule,
+  MatCardModule,
+  MatGridListModule,
+  MatButtonModule } from '@angular/material';
 import { Md2DatepickerModule } from 'md2';
 
 import { ClientListComponent } from './client-list.component';
@@ -18,6 +18,10 @@ import { SessionModule } from '../session/session.module';
 import { SharedModule } from '../shared';
 
 const clientRouting: ModuleWithProviders = RouterModule.forChild([
+  {
+    path: '',
+    component: ClientListComponent,
+  },
   {
     path: 'clients',
     component: ClientListComponent,
@@ -41,13 +45,13 @@ const clientRouting: ModuleWithProviders = RouterModule.forChild([
     SharedModule,
     SessionModule,
     BrowserAnimationsModule,
-    MdCheckboxModule,
-    MdInputModule,
-    MdDatepickerModule,
-    MdNativeDateModule,
-    MdCardModule,
-    MdGridListModule,
-    MdButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
     Md2DatepickerModule
   ],
   declarations: [
@@ -57,6 +61,9 @@ const clientRouting: ModuleWithProviders = RouterModule.forChild([
   ],
   providers: [
     ClientResolver
+  ],
+  exports: [
+    ClientListComponent,
   ]
 })
 export class ClientModule {}
